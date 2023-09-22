@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 using System.Security.Cryptography;
 
 namespace NCalc
 {
     public class Numbers
     {
-        private static object ConvertIfString(object s)
+        private static object ConvertIfString(object s, CultureInfo cultureInfo)
         {
             if (s is String|| s is char)
             {
-                return Decimal.Parse(s.ToString());
+                return Decimal.Parse(s.ToString(), cultureInfo);
             }
 
             return s;
@@ -26,10 +27,10 @@ namespace NCalc
             return input;
         }
 
-        public static object Add(object a, object b, EvaluateOptions options)
+        public static object Add(object a, object b, EvaluateOptions options, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (options.HasFlag(EvaluateOptions.BooleanCalculation))
             {
@@ -260,10 +261,10 @@ namespace NCalc
             return null;
         }
 
-        public static object AddChecked(object a, object b, EvaluateOptions options)
+        public static object AddChecked(object a, object b, EvaluateOptions options, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (options.HasFlag(EvaluateOptions.BooleanCalculation))
             {
@@ -496,10 +497,10 @@ namespace NCalc
             }
         }
 
-        public static object Soustract(object a, object b, EvaluateOptions options)
+        public static object Soustract(object a, object b, EvaluateOptions options, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (options.HasFlag(EvaluateOptions.BooleanCalculation))
             {
@@ -718,10 +719,10 @@ namespace NCalc
 
             return null;
         }
-        public static object SoustractChecked(object a, object b, EvaluateOptions options)
+        public static object SoustractChecked(object a, object b, EvaluateOptions options, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (options.HasFlag(EvaluateOptions.BooleanCalculation))
             {
@@ -941,10 +942,10 @@ namespace NCalc
             }
             return null;
         }
-        public static object Multiply(object a, object b, EvaluateOptions options)
+        public static object Multiply(object a, object b, EvaluateOptions options, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (options.HasFlag(EvaluateOptions.BooleanCalculation))
             {
@@ -1146,10 +1147,10 @@ namespace NCalc
 
             return null;
         }
-        public static object MultiplyChecked(object a, object b, EvaluateOptions options)
+        public static object MultiplyChecked(object a, object b, EvaluateOptions options, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (options.HasFlag(EvaluateOptions.BooleanCalculation))
             {
@@ -1352,10 +1353,10 @@ namespace NCalc
             }
             return null;
         }
-        public static object Divide(object a, object b, EvaluateOptions options)
+        public static object Divide(object a, object b, EvaluateOptions options, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (options.HasFlag(EvaluateOptions.BooleanCalculation))
             {
@@ -1558,10 +1559,10 @@ namespace NCalc
             return null;
         }
 
-        public static object Modulo(object a, object b)
+        public static object Modulo(object a, object b, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             TypeCode typeCodeA = a.GetTypeCode();
             TypeCode typeCodeB = b.GetTypeCode();
@@ -1757,10 +1758,10 @@ namespace NCalc
 
             return null;
         }
-        public static object Max(object a, object b)
+        public static object Max(object a, object b, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (a == null && b == null)
             {
@@ -1807,10 +1808,10 @@ namespace NCalc
 
             return null;
         }
-        public static object Min(object a, object b)
+        public static object Min(object a, object b, CultureInfo cultureInfo)
         {
-            a = ConvertIfString(a);
-            b = ConvertIfString(b);
+            a = ConvertIfString(a, cultureInfo);
+            b = ConvertIfString(b, cultureInfo);
 
             if (a == null && b == null)
             {
