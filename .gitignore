@@ -20,3 +20,4 @@ packages/
 .vs/
 project.lock.json
 *.user
+/src/NCalc/nuget.config
